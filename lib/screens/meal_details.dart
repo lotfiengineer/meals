@@ -81,7 +81,22 @@ class MealDetailsScreen extends ConsumerWidget {
                 ),
               );
             },
-            icon: Icon(isFavorite ? Icons.star : Icons.star_border),
+            icon: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              transitionBuilder: (child, animation) {
+                return RotationTransition(
+                  turns: Tween<double>(
+                    begin: 0.75,
+                    end: 1.0,
+                  ).animate(animation),
+                  child: child,
+                );
+              },
+              child: Icon(
+                isFavorite ? Icons.star : Icons.star_border,
+                key: ValueKey(isFavorite),
+              ),
+            ),
           )
         ],
       ),
@@ -90,11 +105,14 @@ class MealDetailsScreen extends ConsumerWidget {
           SliverAppBar(
             automaticallyImplyLeading: false,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
-                meal.imageUrl,
-                height: 300,
-                width: double.infinity,
-                fit: BoxFit.cover,
+              background: Hero(
+                tag: meal.id,
+                child: Image.network(
+                  meal.imageUrl,
+                  height: 300,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             pinned: true,

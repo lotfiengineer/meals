@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:mohammad_meals/screens/Categories.dart';
-import 'package:mohammad_meals/screens/Filters.dart';
+import 'package:mohammad_meals/screens/categories.dart';
+import 'package:mohammad_meals/screens/filters.dart';
 import 'package:mohammad_meals/screens/meals.dart';
 import 'package:mohammad_meals/widgets/main_drawer.dart';
 import 'package:mohammad_meals/Providers/favorites_provider.dart';
